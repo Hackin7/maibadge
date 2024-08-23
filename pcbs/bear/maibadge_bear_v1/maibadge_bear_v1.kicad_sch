@@ -2652,6 +2652,19 @@
 		)
 		(uuid "91f944a1-4248-458f-b210-eb55eec3d768")
 	)
+	(text "LEDs"
+		(exclude_from_sim no)
+		(at 178.562 20.066 0)
+		(effects
+			(font
+				(face "Consolas")
+				(size 4 4)
+				(thickness 0.8)
+				(bold yes)
+			)
+		)
+		(uuid "cc8a7f7e-7f1b-4555-bbc8-70ebd67cb9ce")
+	)
 	(text "Display"
 		(exclude_from_sim no)
 		(at 34.798 22.098 0)
