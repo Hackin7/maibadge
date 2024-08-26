@@ -2230,6 +2230,16 @@
 		)
 		(uuid "1051e232-5ccd-4345-b712-33f02676f1a9")
 	)
+	(wire
+		(pts
+			(xy 86.36 68.58) (xy 93.98 68.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1c3926a7-a35f-4e98-906b-12a59aa869a7")
+	)
 	(polyline
 		(pts
 			(xy 69.85 16.51) (xy 69.85 173.99)
@@ -2249,16 +2259,6 @@
 			(type default)
 		)
 		(uuid "300d81aa-19f8-4658-8f06-a7f382de5e06")
-	)
-	(wire
-		(pts
-			(xy 86.36 73.66) (xy 93.98 73.66)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3157bba3-5da5-457a-89fa-07cd3e80f847")
 	)
 	(wire
 		(pts
@@ -2349,6 +2349,16 @@
 			(type default)
 		)
 		(uuid "5a7e5d2c-00d1-446d-a5d2-0265ce88f57c")
+	)
+	(wire
+		(pts
+			(xy 86.36 73.66) (xy 93.98 73.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6057e5b0-b337-4f29-8d08-cecc81cd2716")
 	)
 	(wire
 		(pts
@@ -2499,16 +2509,6 @@
 			(type default)
 		)
 		(uuid "ab098588-75f9-4c88-b0d4-3588045e200c")
-	)
-	(wire
-		(pts
-			(xy 86.36 68.58) (xy 93.98 68.58)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ae4031e2-1ecb-400a-be7c-4424f1e601ac")
 	)
 	(wire
 		(pts
@@ -2784,7 +2784,7 @@
 		(uuid "444ca620-9995-41f9-8fc3-080d80df06df")
 	)
 	(label "OLED_RST"
-		(at 86.36 68.58 180)
+		(at 86.36 73.66 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2960,7 +2960,7 @@
 		(uuid "f7e67ae1-24fa-44db-9652-fbfd57ca4005")
 	)
 	(label "OLED_DC"
-		(at 86.36 73.66 180)
+		(at 86.36 68.58 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
