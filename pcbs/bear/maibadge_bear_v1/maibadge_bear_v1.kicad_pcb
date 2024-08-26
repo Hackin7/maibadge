@@ -602,6 +602,7 @@
 			(at -10.5 -11.4 180)
 			(unlocked yes)
 			(layer "B.SilkS")
+			(hide yes)
 			(uuid "0cd781f1-e694-46de-b4e3-bf00a076f8e9")
 			(effects
 				(font
@@ -13466,10 +13467,36 @@
 			(justify left bottom mirror)
 		)
 	)
+	(gr_text "b2"
+		(at 120.2 66.3 0)
+		(layer "B.SilkS")
+		(uuid "212da724-3a6f-4f56-bbf5-6b86d8271be7")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.1)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
 	(gr_text "GND"
 		(at 118.4 132.1 0)
 		(layer "B.SilkS")
 		(uuid "299c107f-7267-49a9-b03f-fcb5ed88540c")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.1)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "DC"
+		(at 109.5 79.7 0)
+		(layer "B.SilkS")
+		(uuid "3352a22c-e4ac-474f-b0fe-1dd2873811d1")
 		(effects
 			(font
 				(size 0.5 0.5)
@@ -13492,10 +13519,75 @@
 			(justify left bottom mirror)
 		)
 	)
+	(gr_text "3V3"
+		(at 127.8 87 0)
+		(layer "B.SilkS")
+		(uuid "4d1f6800-29dd-49d4-ab8b-89121538c6bc")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.1)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "GND"
+		(at 129.5 87 0)
+		(layer "B.SilkS")
+		(uuid "5b7b1307-9756-48b6-95a9-3735205f787c")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.1)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "chip_PU"
+		(at 126.3 87 0)
+		(layer "B.SilkS")
+		(uuid "66370daf-5743-44dc-b559-304516618426")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.1)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
 	(gr_text "USB_D+"
 		(at 114.7 140.3 0)
 		(layer "B.SilkS")
 		(uuid "71719631-cffd-488d-98fd-b9cba1610431")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.1)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "RST"
+		(at 109.5 77 0)
+		(layer "B.SilkS")
+		(uuid "789122b4-4f10-48bd-809b-47cb6141a54a")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.1)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "USB-"
+		(at 114.1 86.9 0)
+		(layer "B.SilkS")
+		(uuid "8b03c424-0f68-4a44-8318-176e55a8e39d")
 		(effects
 			(font
 				(size 0.5 0.5)
@@ -13518,10 +13610,114 @@
 			(justify left bottom mirror)
 		)
 	)
+	(gr_text "buzzer"
+		(at 123.6 66.4 0)
+		(layer "B.SilkS")
+		(uuid "98672902-d994-44e4-b3e1-c8d38d153025")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.1)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "SDA"
+		(at 109.5 75.8 0)
+		(layer "B.SilkS")
+		(uuid "99266c2f-90b0-407a-92f1-7f01a0db344c")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.1)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "SCL"
+		(at 108.3 74.4 0)
+		(layer "B.SilkS")
+		(uuid "b78431c4-b437-4f9c-835c-5c2a3eb99e09")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.1)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "BOOT"
+		(at 113.1 66.4 0)
+		(layer "B.SilkS")
+		(uuid "b7aa5908-451b-499b-a0ad-96ef9b072931")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.1)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
 	(gr_text "+5V"
 		(at 114 132.1 0)
 		(layer "B.SilkS")
 		(uuid "bd6fbd2d-4dcc-4616-8a31-2c29ef06182d")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.1)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "b1"
+		(at 109.7 73.2 0)
+		(layer "B.SilkS")
+		(uuid "c586a4e8-e420-4fb6-93f7-5bb7b51348e7")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.1)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "CS"
+		(at 109.5 78.3 0)
+		(layer "B.SilkS")
+		(uuid "ca130a81-2b83-4b92-b464-26e835225db2")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.1)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "3v3"
+		(at 118.5 89.5 0)
+		(layer "B.SilkS")
+		(uuid "ccf6c3c9-4939-4cea-8dd9-85cf72a01637")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.1)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "USB+"
+		(at 112.9 86.4 0)
+		(layer "B.SilkS")
+		(uuid "e6c27301-8ddc-479b-b155-6b0290be095a")
 		(effects
 			(font
 				(size 0.5 0.5)
