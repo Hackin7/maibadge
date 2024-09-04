@@ -2222,36 +2222,6 @@
 	)
 	(wire
 		(pts
-			(xy 128.27 71.12) (xy 124.46 71.12)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "04d60ff5-b738-41ee-a6cc-31530b5c1d83")
-	)
-	(wire
-		(pts
-			(xy 129.54 48.26) (xy 124.46 48.26)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0777abcd-3290-4e7d-a3d3-c0469c7c170f")
-	)
-	(wire
-		(pts
-			(xy 86.36 73.66) (xy 93.98 73.66)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0f24c8fb-f08e-46e4-8696-47eaeaffbee9")
-	)
-	(wire
-		(pts
 			(xy 36.83 50.8) (xy 48.26 50.8)
 		)
 		(stroke
@@ -2259,6 +2229,16 @@
 			(type default)
 		)
 		(uuid "1051e232-5ccd-4345-b712-33f02676f1a9")
+	)
+	(wire
+		(pts
+			(xy 86.36 68.58) (xy 93.98 68.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1c3926a7-a35f-4e98-906b-12a59aa869a7")
 	)
 	(polyline
 		(pts
@@ -2269,6 +2249,26 @@
 			(type default)
 		)
 		(uuid "28bda05a-8123-4124-af4d-702bd05362f8")
+	)
+	(wire
+		(pts
+			(xy 86.36 71.12) (xy 93.98 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "300d81aa-19f8-4658-8f06-a7f382de5e06")
+	)
+	(wire
+		(pts
+			(xy 124.46 53.34) (xy 129.54 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "32a6e7b6-3513-43f2-85cb-0d2865eaaa9b")
 	)
 	(wire
 		(pts
@@ -2352,6 +2352,16 @@
 	)
 	(wire
 		(pts
+			(xy 86.36 73.66) (xy 93.98 73.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6057e5b0-b337-4f29-8d08-cecc81cd2716")
+	)
+	(wire
+		(pts
 			(xy 138.43 115.57) (xy 149.86 115.57)
 		)
 		(stroke
@@ -2379,16 +2389,6 @@
 			(type default)
 		)
 		(uuid "6b69dbcd-8b50-4715-855f-3d39ecb2db96")
-	)
-	(wire
-		(pts
-			(xy 129.54 50.8) (xy 124.46 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "70c78f28-0c5a-41ab-ab05-fb9b158d0a89")
 	)
 	(wire
 		(pts
@@ -2422,13 +2422,13 @@
 	)
 	(wire
 		(pts
-			(xy 87.63 68.58) (xy 93.98 68.58)
+			(xy 86.36 76.2) (xy 93.98 76.2)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "7b80784b-f3c9-486d-a05e-429b9d01bdd6")
+		(uuid "7bd1880e-e5d7-4a0f-b005-8d8f8087d1d9")
 	)
 	(wire
 		(pts
@@ -2472,6 +2472,16 @@
 	)
 	(wire
 		(pts
+			(xy 86.36 78.74) (xy 93.98 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9fb8411b-ac10-4ea4-81a3-236cbbb3086e")
+	)
+	(wire
+		(pts
 			(xy 101.6 121.92) (xy 110.49 121.92)
 		)
 		(stroke
@@ -2479,6 +2489,16 @@
 			(type default)
 		)
 		(uuid "a387217b-107a-4797-a67e-107a6668b554")
+	)
+	(wire
+		(pts
+			(xy 124.46 48.26) (xy 129.54 48.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a4d01094-8c7f-45b4-9b00-09187e2aa646")
 	)
 	(wire
 		(pts
@@ -2522,23 +2542,13 @@
 	)
 	(wire
 		(pts
-			(xy 86.36 71.12) (xy 93.98 71.12)
+			(xy 124.46 50.8) (xy 129.54 50.8)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "d5eccf15-06f0-4099-a215-26229e2eb19e")
-	)
-	(wire
-		(pts
-			(xy 87.63 66.04) (xy 93.98 66.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e6e35f0b-0ef8-466f-9db1-1695dfc7711e")
+		(uuid "c520b252-081f-45fd-aeca-00b2b112ca42")
 	)
 	(wire
 		(pts
@@ -2569,16 +2579,6 @@
 			(type default)
 		)
 		(uuid "efec8273-cbd6-4414-acbb-d547289fdfcd")
-	)
-	(wire
-		(pts
-			(xy 87.63 76.2) (xy 93.98 76.2)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f293fef2-6a64-4eec-8011-9e08d1377f1d")
 	)
 	(wire
 		(pts
@@ -2652,6 +2652,19 @@
 		)
 		(uuid "91f944a1-4248-458f-b210-eb55eec3d768")
 	)
+	(text "LEDs"
+		(exclude_from_sim no)
+		(at 178.562 20.066 0)
+		(effects
+			(font
+				(face "Consolas")
+				(size 4 4)
+				(thickness 0.8)
+				(bold yes)
+			)
+		)
+		(uuid "cc8a7f7e-7f1b-4555-bbc8-70ebd67cb9ce")
+	)
 	(text "Display"
 		(exclude_from_sim no)
 		(at 34.798 22.098 0)
@@ -2716,7 +2729,7 @@
 		(uuid "0595b7e5-49f9-4585-a456-1b64721c9404")
 	)
 	(label "USB_D-"
-		(at 129.54 50.8 0)
+		(at 129.54 48.26 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2771,7 +2784,7 @@
 		(uuid "444ca620-9995-41f9-8fc3-080d80df06df")
 	)
 	(label "OLED_RST"
-		(at 87.63 76.2 180)
+		(at 86.36 73.66 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2781,8 +2794,19 @@
 		)
 		(uuid "45a78baf-b9d7-43b0-a746-02e3e87dccb2")
 	)
+	(label "button 1"
+		(at 129.54 53.34 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "4f1552ca-f477-4e00-a595-2068b97dfef0")
+	)
 	(label "OLED_CS"
-		(at 86.36 73.66 180)
+		(at 86.36 71.12 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2826,7 +2850,7 @@
 		(uuid "7d6dd72a-cea9-4578-bb19-fc184d35020a")
 	)
 	(label "OLED_SDA"
-		(at 87.63 68.58 180)
+		(at 86.36 76.2 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2870,7 +2894,7 @@
 		(uuid "86afdb8d-bb8f-46e8-9f18-11abc3e0d4ef")
 	)
 	(label "USB_D+"
-		(at 129.54 48.26 0)
+		(at 129.54 50.8 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2880,19 +2904,8 @@
 		)
 		(uuid "947b5601-ea34-4696-8eab-969da33c6e49")
 	)
-	(label "button 1"
-		(at 128.27 71.12 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "a71b3239-9367-4981-ab37-8f9935df46b8")
-	)
 	(label "OLED_SCL"
-		(at 87.63 66.04 180)
+		(at 86.36 78.74 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2947,7 +2960,7 @@
 		(uuid "f7e67ae1-24fa-44db-9652-fbfd57ca4005")
 	)
 	(label "OLED_DC"
-		(at 86.36 71.12 180)
+		(at 86.36 68.58 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2994,7 +3007,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 			(at 105.41 113.792 90)
 			(effects
 				(font
@@ -3061,7 +3074,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_SMD:SW_SPST_B3U-1000P"
+		(property "Footprint" "Button_Switch_SMD:SW_Push_1P1T_XKB_TS-1187A"
 			(at 96.52 134.62 0)
 			(effects
 				(font
@@ -3129,7 +3142,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 			(at 52.07 109.982 90)
 			(effects
 				(font
@@ -3457,7 +3470,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 			(at 50.8 90.932 90)
 			(effects
 				(font
@@ -3957,7 +3970,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_SMD:SW_SPST_B3U-1000P"
+		(property "Footprint" "Button_Switch_SMD:SW_Push_1P1T_XKB_TS-1187A"
 			(at 41.91 87.63 0)
 			(effects
 				(font
@@ -4097,7 +4110,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 			(at 105.41 137.922 90)
 			(effects
 				(font
@@ -4470,7 +4483,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_SMD:SW_SPST_B3U-1000P"
+		(property "Footprint" "Button_Switch_SMD:SW_Push_1P1T_XKB_TS-1187A"
 			(at 96.52 110.49 0)
 			(effects
 				(font
@@ -4815,7 +4828,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_SMD:SW_SPST_B3U-1000P"
+		(property "Footprint" "Button_Switch_SMD:SW_Push_1P1T_XKB_TS-1187A"
 			(at 43.18 106.68 0)
 			(effects
 				(font
