@@ -8,7 +8,9 @@ gc.enable()
 gc.collect()
 
 buttons = {
-  'center': Pin(8 , Pin.IN)
+    'A': Pin(4 , Pin.IN)
+    'B': Pin(8 , Pin.IN)
+    'center': Pin(9 , Pin.IN)
 }
 
 # OLED SPI Driver
