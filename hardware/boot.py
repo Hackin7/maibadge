@@ -151,12 +151,13 @@ def display_update(button_press=None):
     dh.updating = False
 
 # Initial update of display
-display_update(None)
-
+#display_update(None)
+tft.jpg("maibear2.jpg", 0, 0)
 
 # Periodically update display
-tim = Timer(0) #timer id 0
-tim.init(period=10000, mode=Timer.PERIODIC, callback=lambda t: display_update()) #self refreshes every 10s
+#tim = Timer(0) #timer id 0
+#tim.init(period=10000, mode=Timer.PERIODIC, callback=lambda t: display_update()) #self refreshes every 10s
+
 
 
 
