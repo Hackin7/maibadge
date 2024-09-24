@@ -11,28 +11,15 @@ from machine import Timer
 import time
 import gc
 
+gc.enable()
+gc.collect()
 # Handle button events with display
 #def my_button_handler(pin):
 #   display_update(pin)
-    
-## Button handler
-previous_button_press = 0 #to track time
 
-def handle_buttons(pin):
-    # Software debouncing logic (100ms)
-    global previous_button_press
-    if (time.ticks_ms() - previous_button_press) < 100:
-        return
-    previous_button_press = time.ticks_ms()
-    display_update(pin)
-#    global my_button_handler
-#   if my_button_handler:
-#        my_button_handler(pin)
-
-for b in buttons.values():
-    b.irq(trigger=Pin.IRQ_FALLING, handler=handle_buttons) #detect pull down
 
 ## Eyes image display handler
+'''
 class DisplayHolder:
     # status
     mode = 'menu'
@@ -49,7 +36,7 @@ class DisplayHolder:
     updating = False
     full_refresh = True
 
-dh = DisplayHolder()
+#dh = DisplayHolder()
 def display_update(button_press=None):
 
     global dh
@@ -149,14 +136,48 @@ def display_update(button_press=None):
 
     # Cleanup
     dh.updating = False
+'''
+
 
 # Initial update of display
 #display_update(None)
+print("load")
 tft.jpg("maibear2.jpg", 0, 0)
+img = ["maibear2.jpg", "maibear1.jpg", "maibear.jpg"]
+image_index = 0
+def image_display(button_press=None):
+    print(button_press)
+    global image_index
+    if button_press == buttons['A']:
+        image_index = (image_index+1)%3
+        print(img[image_index])
+        tft.jpg(img[image_index], 0, 0)
+    if button_press == buttons['B']:
+        tft.fill(gc9a01.BLACK)
+        tft.text(bigfont, f' maibadge', 24+8, 60+5, 0xFC18)
+        #tft.text(bigfont, f' maibadge  ', 24+8, 60, 0xFC18)
+
+
+    
+## Button handler
+previous_button_press = 0 #to track time
+
+def handle_buttons(pin):
+    # Software debouncing logic (100ms)
+    global previous_button_press
+    if (time.ticks_ms() - previous_button_press) < 100:
+        return
+    previous_button_press = time.ticks_ms()
+    image_display(pin)
+
+for b in buttons.values():
+    b.irq(trigger=Pin.IRQ_FALLING, handler=handle_buttons) #detect pull down
 
 # Periodically update display
 #tim = Timer(0) #timer id 0
 #tim.init(period=10000, mode=Timer.PERIODIC, callback=lambda t: display_update()) #self refreshes every 10s
+
+
 
 
 

@@ -8,14 +8,15 @@ gc.enable()
 gc.collect()
 
 buttons = {
-    'A': Pin(4 , Pin.IN),
-    'B': Pin(8 , Pin.IN),
-    'center': Pin(9 , Pin.IN)
+    'A': Pin(21 , Pin.IN),
+    'B': Pin(0 , Pin.IN) #,
+    #'center': Pin(0 , Pin.IN) # Pin 41 not available
 }
 
 # OLED SPI Driver
-spi = SoftSPI(baudrate=100000, polarity=1, phase=0, sck=Pin(14), mosi=Pin(13), miso=Pin(4))
-spi.init(baudrate=200000) # set the baudrate
+spi = SoftSPI(baudrate=8000000, polarity=1, phase=0, sck=Pin(14), mosi=Pin(13), miso=Pin(4))
+#spi = SPI(1, baudrate=100000, polarity=1, phase=0, sck=Pin(14), mosi=Pin(13), miso=Pin(4)) # not working
+#spi.init(baudrate=200000) # set the baudrate
 tft = gc9a01.GC9A01(
     spi,
         240,
