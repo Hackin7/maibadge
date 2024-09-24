@@ -142,20 +142,27 @@ def display_update(button_press=None):
 # Initial update of display
 #display_update(None)
 print("load")
-tft.jpg("maibear2.jpg", 0, 0)
-img = ["maibear2.jpg", "maibear1.jpg", "maibear.jpg"]
+img = ["maibear2.jpg", "maibear1.jpg", "maibear.jpg",
+       "./images/maisongselect.jpg", "./images/maisongchosen.jpg", "./images/maigameplay1.jpg", "./images/maigameplay2.jpg"]
 image_index = 0
+tft.jpg(img[image_index], 0, 0)#, gc9a01.SLOW)
 def image_display(button_press=None):
     print(button_press)
     global image_index
     if button_press == buttons['A']:
-        image_index = (image_index+1)%3
+        image_index = (image_index+1)%len(img)
         print(img[image_index])
         tft.jpg(img[image_index], 0, 0)
     if button_press == buttons['B']:
+        enable_handlers(None)
         tft.fill(gc9a01.BLACK)
         tft.text(bigfont, f' maibadge', 24+8, 60+5, 0xFC18)
+        time.sleep(1)
+        tft.fill(gc9a01.BLACK)
+        maigame.playfield(tft)
+        maigame.animation(tft, buttons)
         #tft.text(bigfont, f' maibadge  ', 24+8, 60, 0xFC18)
+        enable_handlers(handle_buttons)
 
 
     
@@ -170,16 +177,22 @@ def handle_buttons(pin):
     previous_button_press = time.ticks_ms()
     image_display(pin)
 
-for b in buttons.values():
-    b.irq(trigger=Pin.IRQ_FALLING, handler=handle_buttons) #detect pull down
+def enable_handlers(handler=handle_buttons):
+    for b in buttons.values():
+        b.irq(trigger=Pin.IRQ_FALLING, handler=handler) #detect pull down
 
+enable_handlers()
 # Periodically update display
 #tim = Timer(0) #timer id 0
 #tim.init(period=10000, mode=Timer.PERIODIC, callback=lambda t: display_update()) #self refreshes every 10s
 
 
 
+import maigame
 
+#tft.fill(gc9a01.BLACK)
+#maigame.playfield(tft)
+#maigame.animation(tft, buttons)
 
 
 
