@@ -17,4 +17,4 @@ tft = gc9a01.GC9A01(
 
 tft.init()
 
-
+ref = {"tft": tft}

@@ -9,3 +9,8 @@ def on(freq, duty=32767):
 
 def off():
   buzzer.duty_u16(0)
+  
+ref = {
+    "on" : on,
+    "off": on
+}

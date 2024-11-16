@@ -1,6 +1,7 @@
-class App:
-    def __init__(self, tft):
-        self.tft = tft
+class AppTemplate:
+    def __init__(self, hardware):
+        self.hardware = hardware
 
-    def button_1(self):
+    def button_handler(self, button_press):
         pass
+    
