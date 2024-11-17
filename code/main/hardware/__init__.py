@@ -10,9 +10,12 @@ gc.collect()
 from hardware import buttons
 from hardware import buzzer
 from hardware import face
+from hardware import touchpads
 
 ref = {
     "buttons" : buttons.ref, 
     "buzzer" : buzzer.ref, 
-    "face" : face.ref
+    "face" : face.ref,
+    "touchpads": touchpads.ref
 }
+ 
