@@ -28,6 +28,7 @@ def enable_handlers(function):
         # Software debouncing logic (100ms)
         global previous_button_press
         if (time.ticks_ms() - previous_button_press) < 300:
+            previous_button_press = time.ticks_ms()
             return
         previous_button_press = time.ticks_ms()
         function(pin)
@@ -37,7 +38,14 @@ def enable_handlers(function):
 
 
 mf = MaiFace(ref)
-mf.load()
+
+ref["face"]["tft"].jpg("./menu_foreground.jpg", 0, 0)
+ref["face"]["tft"].jpg("./menu_item_indiv.jpg", 92, 88)
+ref["face"]["tft"].jpg("./menu_item_indiv_small_62.jpg", 120-28-5-35, 97)
+ref["face"]["tft"].jpg("./menu_item_indiv_small_62.jpg", 120-28-5-35-5-35, 97)
+ref["face"]["tft"].jpg("./menu_item_indiv_small_62.jpg", 120+28+5, 97)
+ref["face"]["tft"].jpg("./menu_item_indiv_small_62.jpg", 120+28+5+35+5, 97)
+#mf.load()
 enable_handlers(mf.on_press)
 # Periodically update display
 #tim = Timer(0) #timer id 0
