@@ -2,6 +2,7 @@ import gc9a01
 import time
 import hardware.vga1_8x16 as smallfont
 import hardware.vga1_bold_16x32 as bigfont
+from apps.template import AppTemplate
 #tft.jpg("./images/maigameplay1.jpg", 0, 0)
     
 
@@ -107,3 +108,20 @@ def animation(tft, buttons={}):
         else: combo = 0
         time.sleep(time_div)
             
+
+class MaiGame(AppTemplate):
+    def __init__(self, hardware):
+        super().__init__(hardware)
+
+    def load(self):
+        tft = self.hardware["face"]["tft"]
+        buttons = self.hardware["buttons"]
+        tft.fill(gc9a01.BLACK)
+        tft.text(bigfont, f' maibadge', 24+8, 60+5, 0xFC18)
+        time.sleep(1)
+        tft.fill(gc9a01.BLACK)
+        playfield(tft)
+        animation(tft, buttons)
+        
+    def on_press(self, pin):
+        pass
