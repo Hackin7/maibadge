@@ -83,7 +83,7 @@ class MaiMenu(AppTemplate):
         if self.apps[self.app_index] == "face":            
             self.unload()
             mf = MaiFace(self.hardware)
-            mf.load()
+            mf.load(exit_callback=self.load)
         elif self.apps[self.app_index] == "led":
             colours = {
                 "empty": (0,0,0),
