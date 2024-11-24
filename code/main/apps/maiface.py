@@ -1,12 +1,14 @@
 from hardware.buttons import buttons
 from apps.template import AppTemplate
 from machine import Timer, Pin
+import time
 
-img = ["./images/maibear2.jpg", "./images/maibear1.jpg", "./images/maibear_og.jpg",
-       "./images/maibear_clown.jpg", "./images/maibear_study_atb.jpg", "./images/maibear_study_work_harder.jpg",  "./images/maibear_study_water_thing.jpg",
-       "./menu_foreground_1.jpg", "./images/maisongselect.jpg", "./images/maisongchosen.jpg", "./images/maigameplay1.jpg", "./images/maigameplay2.jpg"]
+img = ["./images/maibear1.jpg", "./images/maibear_study_atb.jpg", "./images/maibear_og.jpg",
+       "./images/maibear_clown.jpg", "./images/maibear2.jpg", "./images/maibear_study_work_harder.jpg",  "./images/maibear_study_water_thing.jpg",
+       "./images/menu_graphics/menu_foreground_1.jpg", "./images/maisongselect.jpg", "./images/maisongchosen.jpg", "./images/maigameplay1.jpg", "./images/maigameplay2.jpg"]
 
 
+previous_button_press = 0
 def enable_handlers(function, ref):
     def handler(pin):
         # Software debouncing logic (100ms)
