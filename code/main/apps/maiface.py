@@ -2,7 +2,8 @@ from hardware.buttons import buttons
 from apps.template import AppTemplate
 from machine import Timer, Pin
 
-img = ["./images/maibear2.jpg", "./images/maibear1.jpg", "./images/maibear.jpg",
+img = ["./images/maibear2.jpg", "./images/maibear1.jpg", "./images/maibear_og.jpg",
+       "./images/maibear_clown.jpg", "./images/maibear_study_atb.jpg", "./images/maibear_study_work_harder.jpg",  "./images/maibear_study_water_thing.jpg",
        "./menu_foreground_1.jpg", "./images/maisongselect.jpg", "./images/maisongchosen.jpg", "./images/maigameplay1.jpg", "./images/maigameplay2.jpg"]
 
 
