@@ -24,11 +24,14 @@ from apps.maimenu import MaiMenu
 ## Button handler
 previous_button_press = 0 #to track time
 
-
 mm = MaiMenu(ref)
-mm.load()
+def move_to_menu():
+    global mm
+    mm.load(display=False)
+#move_to_menu()
 
-#mf.load()
+mf = MaiFace(ref)
+mf.load(exit_callback=mm.load)
 
 # Periodically update display
 #tim = Timer(0) #timer id 0

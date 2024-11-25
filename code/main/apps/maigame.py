@@ -70,14 +70,19 @@ time_div = 1/8
 steps = 8
 
 chart = [
-    [0], [1], [2], [3], [4], [5], [6], [7],
+    [7], [0], [7], [0], [7], [0], [7], 
+    [0], [1], [2], [3], [4], [5], [6], [7]
 ]
 chart = chart + [[] for i in range(steps+1)]
 
-def animation(tft, buttons={}):
-    combo = 0
+notes_to_touchpad = ["R1", "R2", "R3", "R4", "L4", "L3", "L2", "L1"]
+
+def animation(ref):
+    tft = ref["face"]["tft"]
+    buttons = ref["buttons"]
+    combo = 0 
     for note_index in range(len(chart)):
-        centre_string = f'{combo}'
+        centre_string = f' {combo}  '
         tft.text(bigfont, centre_string, 120-int(8*len(centre_string)/2), 120-16, gc9a01.WHITE)
         #print("Note Index:", note_index, chart[note_index])
         combo_local = 0
@@ -99,7 +104,8 @@ def animation(tft, buttons={}):
             fraction = min(step/steps, 1)
             for note in notes:
                 handle_ring(tft, start_pos, delta[note], fraction, gc9a01.YELLOW)
-                if fraction == 1 and buttons.get('A').value() == 0: # button pressed
+                print(notes_to_touchpad[note])
+                if fraction == 1 and ref["touchpads"][notes_to_touchpad[note]].is_pressed(): #buttons.get('A').value() == 0: # button pressed
                     combo_local = 1
                 else:
                     combo_local = 0
@@ -115,13 +121,12 @@ class MaiGame(AppTemplate):
 
     def load(self):
         tft = self.hardware["face"]["tft"]
-        buttons = self.hardware["buttons"]
         tft.fill(gc9a01.BLACK)
         tft.text(bigfont, f' maibadge', 24+8, 60+5, 0xFC18)
         time.sleep(1)
         tft.fill(gc9a01.BLACK)
         playfield(tft)
-        animation(tft, buttons)
+        animation(self.hardware)
         
     def on_press(self, pin):
         pass
