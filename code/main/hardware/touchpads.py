@@ -6,6 +6,7 @@ class CustomTouch:
         self.adc = ADC(self.pin)
         self.touchpad = TouchPad(self.pin)
         self.set_threshold()
+        self.pressed = False #is_pressed memory
         
     def is_pressed(self):
         return self.read() > self.threshold
