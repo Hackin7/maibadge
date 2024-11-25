@@ -17,23 +17,23 @@ tft.line(120, 120, 160, 220, gc9a01.WHITE)
 '''
 
 # A1 to A8 - https://github.com/SirusDoma/MaiSense/issues/3
-delta = [
+delta_touch_sensor = [
     (40, -100), (100, -40), (100, 40), (40, 100),
     (-40, 100), (-100, 40), (-100, -40),(-40, -100)
-]
+] 
 
 start_pos = (120, 120) # centre
 
 
 
 def draw_ring(tft, x, y, outer_radius, width, colour):
-    for i in range(width):
+    for i in range(width): #width of ring
         tft.circle(x, y, outer_radius-i, colour)
     #gc9a01.YELLOW
         
 def playfield(tft):
-    tft.circle(120,120,108, gc9a01.WHITE)
-    for dx, dy in delta:
+    tft.circle(120,120,108, gc9a01.WHITE) #big circle ring
+    for dx, dy in delta_touch_sensor: #each small circle for touch sensor
         draw_ring(
             tft,
             start_pos[0]+dx,
@@ -52,17 +52,17 @@ def handle_ring(tft, start_pos, delta, fraction, colour):
         colour
     )
     
-def simple_animation(tft):
-    handle_ring(tft, start_pos, delta[0], 0, gc9a01.YELLOW)
-    time.sleep(1)
-    handle_ring(tft, start_pos, delta[0], 0, gc9a01.BLACK)
-    #playfield(tft)
-    handle_ring(tft, start_pos, delta[0], 0.5, gc9a01.YELLOW)
-    time.sleep(1)
-    handle_ring(tft, start_pos, delta[0], 0.5, gc9a01.BLACK)
-    #playfield(tft)
-    handle_ring(tft, start_pos, delta[0], 1, gc9a01.YELLOW)
-    time.sleep(1)
+#def simple_animation(tft):
+#    handle_ring(tft, start_pos, delta[0], 0, gc9a01.YELLOW)
+#    time.sleep(1)
+#    handle_ring(tft, start_pos, delta[0], 0, gc9a01.BLACK)
+#    #playfield(tft)
+#    handle_ring(tft, start_pos, delta[0], 0.5, gc9a01.YELLOW)
+#    time.sleep(1)
+#    handle_ring(tft, start_pos, delta[0], 0.5, gc9a01.BLACK)
+#    #playfield(tft)
+#    handle_ring(tft, start_pos, delta[0], 1, gc9a01.YELLOW)
+#    time.sleep(1)
 
 
 
@@ -122,8 +122,8 @@ class MaiGame(AppTemplate):
     def load(self):
         tft = self.hardware["face"]["tft"]
         tft.fill(gc9a01.BLACK)
-        tft.text(bigfont, f' maibadge', 24+8, 60+5, 0xFC18)
-        time.sleep(1)
+        tft.text(bigfont, f' maibadge', 24+8, 60+5, 0xFC18) #big loading screen
+        time.sleep(2)
         tft.fill(gc9a01.BLACK)
         playfield(tft)
         animation(self.hardware)

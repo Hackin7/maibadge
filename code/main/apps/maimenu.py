@@ -18,43 +18,51 @@ class MaiMenu(AppTemplate):
         self.apps = ["face", "led", "buzzintro", "buzzeye", "buzzqz", "buzzmario", "game"]
  
     def display_menu(self):
-        self.hardware["face"]["tft"].jpg("./images/menu_graphics/menu_foreground.jpg", 0, 0)
-        self.hardware["face"]["tft"].jpg("./images/menu_graphics/menu_item_indiv.jpg", 92, 88)
-        if self.app_index >= 1:
+        self.hardware["face"]["tft"].jpg("./images/menu_graphics/menu_foreground.jpg", 0, 0) 
+        self.hardware["face"]["tft"].jpg("./images/menu_graphics/menu_item_indiv.jpg", 92, 88) #main selection
+        if self.app_index >= 1: #1 left of main 
             self.hardware["face"]["tft"].jpg("./images/menu_graphics/menu_item_indiv_small_62.jpg", 120-28-5-35, 97)
             self.hardware["face"]["tft"].text(smallfont, self.apps[self.app_index-1][0:4], 120-28-5-35+2, 88+20, gc9a01.WHITE)
-        if self.app_index >= 2:
+        if self.app_index >= 2: #2 left of main 
             self.hardware["face"]["tft"].jpg("./images/menu_graphics/menu_item_indiv_small_62.jpg", 120-28-5-35-5-35, 97)
             self.hardware["face"]["tft"].text(smallfont, self.apps[self.app_index-2][0:4], 120-28-5-35-5-35+2, 88+20, gc9a01.WHITE)
-        if len(self.apps) - 1 - self.app_index >= 1:
+        if len(self.apps) - 1 - self.app_index >= 1: #1 right of main 
             self.hardware["face"]["tft"].jpg("./images/menu_graphics/menu_item_indiv_small_62.jpg", 120+28+5, 97)
             self.hardware["face"]["tft"].text(smallfont, self.apps[self.app_index+1][0:4], 120+28+5+2, 88+20, gc9a01.WHITE)
-        if len(self.apps) - 1 - self.app_index >= 2:
+        if len(self.apps) - 1 - self.app_index >= 2: #2 right of main 
             self.hardware["face"]["tft"].jpg("./images/menu_graphics/menu_item_indiv_small_62.jpg", 120+28+5+35+5, 97)
             self.hardware["face"]["tft"].text(smallfont, self.apps[self.app_index+2][0:4], 120+28+5+35+5+2, 88+20, gc9a01.WHITE)
         
-        # Text
+        # Text for main selection
         self.hardware["face"]["tft"].text(smallfont, self.apps[self.app_index][0:4], 120-28+10, 88+20-5, gc9a01.WHITE)
-        if len(self.apps[self.app_index]) > 4:
+        if len(self.apps[self.app_index]) > 4: # Text for main selection beyond 4 characters, 1 row down
             self.hardware["face"]["tft"].text(smallfont, self.apps[self.app_index][4:], 120-28+10, 88+20-5+16, gc9a01.WHITE)
         
     def touchpads(self, t):
         ref = self.hardware
         mm = self
         for touchpad in ref["touchpads"]:
-            if touchpad == "R3" and ref["touchpads"][touchpad].is_pressed():
-                mm.app_index = (mm.app_index+1) % len(mm.apps)
-                mm.load()            
-                print(touchpad, ref["touchpads"][touchpad].read(), ref["touchpads"][touchpad].is_pressed())
+            pressed = ref["touchpads"][touchpad].is_pressed()
+            was_pressed = ref["touchpads"][touchpad].pressed
+            if pressed and not was_pressed:
+                if touchpad == "R3": #forward
+                    print(touchpad, ref["touchpads"][touchpad].read(), pressed, was_pressed)
+                    mm.app_index = (mm.app_index+1) % len(mm.apps)
+                    ref["touchpads"][touchpad].pressed = True
+                    mm.load()
+                    
+                if touchpad == "L3": #back
+                    print(touchpad, ref["touchpads"][touchpad].read(), pressed, was_pressed)
+                    mm.app_index = (mm.app_index-1) % len(mm.apps)
+                    ref["touchpads"][touchpad].pressed = True
+                    mm.load()
+                    
+                if touchpad == "R4": #enter button
+                    self.run_app()
             
-            if touchpad == "L3" and ref["touchpads"][touchpad].is_pressed():
-                mm.app_index = (mm.app_index-1) % len(mm.apps)
-                mm.load()            
-                print(touchpad, ref["touchpads"][touchpad].read(), ref["touchpads"][touchpad].is_pressed())
-                
-            if touchpad == "R4" and ref["touchpads"][touchpad].is_pressed():
-                # open maiface app
-                self.run_app()
+            elif not pressed: #remove from memory if it exists
+                ref["touchpads"][touchpad].pressed = False
+                 
     
     def run_app(self):
         if self.apps[self.app_index] == "face":            
@@ -99,16 +107,19 @@ class MaiMenu(AppTemplate):
         elif self.apps[self.app_index] == "game":
             mg = MaiGame(self.hardware)
             mg.load()
-            self.load()
+            #self.load()
             
     
     def load(self, display=True):
+        print("load")
         if display: self.display_menu()
         self.tim0 = Timer(0)
-        self.tim0.init(period=1000, mode=Timer.PERIODIC, callback=self.touchpads)
+        self.tim0.init(period=100, mode=Timer.PERIODIC, callback=self.touchpads)
         
     def unload(self):
         self.tim0.deinit()
     
-    def on_press(self, pin):
+    def on_press(self, pin): #button debugging
         pass
+
+
