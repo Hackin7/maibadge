@@ -27,12 +27,13 @@ previous_button_press = 0 #to track time
 
 #move_to_menu()
 
-mf = MaiFace(ref)
-mf.load(exit_callback=mm.load)
+
 mm = MaiMenu(ref)
 def move_to_menu():
     global mm
     mm.load(display=False)
+mf = MaiFace(ref)
+mf.load(exit_callback=mm.load)
 # Periodically update display
 #tim = Timer(0) #timer id 0
 #tim.init(period=10000, mode=Timer.PERIODIC, callback=lambda t: display_update()) #self refreshes every 10s

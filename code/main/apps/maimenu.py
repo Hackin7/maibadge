@@ -39,6 +39,7 @@ class MaiMenu(AppTemplate):
             self.hardware["face"]["tft"].text(smallfont, self.apps[self.app_index][4:], 120-28+10, 88+20-5+16, gc9a01.WHITE)
         
     def touchpads(self, t):
+        print("touchpads maimenu")
         ref = self.hardware
         mm = self
         for touchpad in ref["touchpads"]:
@@ -105,8 +106,8 @@ class MaiMenu(AppTemplate):
         elif self.apps[self.app_index] == "buzzqz":
             buzz_qzkago(self.hardware)
         elif self.apps[self.app_index] == "game":
-            mg = MaiGame(self.hardware)
-            mg.load()
+            self.unload()
+
             #self.load()
             
     
@@ -114,11 +115,13 @@ class MaiMenu(AppTemplate):
         print("load")
         if display: self.display_menu()
         self.tim0 = Timer(0)
-        self.tim0.init(period=100, mode=Timer.PERIODIC, callback=self.touchpads)
+        self.tim0.init(period=1000, mode=Timer.PERIODIC, callback=self.touchpads)
         
     def unload(self):
         self.tim0.deinit()
-    
+#        mg = MaiGame(self.hardware)
+#        mg.load()        
+
     def on_press(self, pin): #button debugging
         pass
 
