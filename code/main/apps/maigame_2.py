@@ -71,9 +71,11 @@ touchpad_to_location = {"R1":0, "R2":1, "R3":2, "R4":3, "L4":4, "L3":5, "L2":6, 
 class MaiGame(AppTemplate):
     def __init__(self, hardware):
         super().__init__(hardware)
-        self.period = 0
+        self.periods_elasped = 0
         self.chart = []
         self.combo = 0
+        self.period_length = 500
+        self.time_adjust = -200 #time taken from timer starting to first note of animation being sent out
         
     def create_chart(self, chart_objects, time_div):
         for step, location, object_type in chart_objects:
@@ -84,23 +86,21 @@ class MaiGame(AppTemplate):
                 pass
                 
         
-    def touchpads_maigame(self):
-        print("touchpads maigame")
-        self.period += 1
+    def touchpads_maigame(self, t):
+        self.periods_elasped += 1
         ref = self.hardware
         for touchpad in ref["touchpads"]:
             pressed = ref["touchpads"][touchpad].is_pressed()
             was_pressed = ref["touchpads"][touchpad].pressed
             
             if pressed and not was_pressed:
-                time_of_press = self.period*40
+                time_of_press = self.periods_elasped*self.period_length-self.time_adjust
                 for i in range(self.chart): #handling hitting of object
                     object = self.chart[i]
-                    if object.end_time-300 < time_of_press < object.end_time+300:
+                    if object.end_time-500 < time_of_press < object.end_time+500 and touchpad_to_location[touchpad] == object.location:
                         combo += 1
                         self.chart.pop(i)
-                ref["touchpads"][touchpad].pressed = True
-                self.load()            
+                ref["touchpads"][touchpad].pressed = True            
             
             elif not pressed: #remove from memory if it exists
                 ref["touchpads"][touchpad].pressed = False
@@ -111,14 +111,16 @@ class MaiGame(AppTemplate):
         buttons = self.hardware["buttons"]
         self.create_chart(chart_objects, time_div)
         
-        for step in range(len(self.chart)+7):
+        for step in range(len(self.chart)+8):
             print("step", step)
         #handling combo display
             centre_string = f' {self.combo}  '
             tft.text(bigfont, centre_string, 120-int(8*len(centre_string)/2), 120-16, gc9a01.WHITE)
             
             for i in range(len(self.chart)): #handling of objects
-                object = self.chart[i]
+                try: #deal with problems regarding the pop
+                    object = self.chart[i]
+                except: continue
             #draw and remove prev if needed
                 if object.step == step: 
                     object.draw(tft, 0, gc9a01.YELLOW)
@@ -129,13 +131,13 @@ class MaiGame(AppTemplate):
                     
                 if object.step+8 == step: 
                     object.draw(tft, 7/8, gc9a01.BLACK)
-                    print("self.period", self.period)
+                    print("self.period", self.periods_elasped)
                     
                 if object.step+11 == step: #300ms before object is auto missed
                     self.combo = 0
                     self.chart.pop(0) #remove object from the chart for optimisation !might cause issues with objects on the same step in the future!     
         
-            time.sleep(1/10)
+            time.sleep(1)
         
          
     def load(self):
@@ -146,12 +148,10 @@ class MaiGame(AppTemplate):
         tft.fill(gc9a01.BLACK)
         playfield(tft)
         self.tim0 = Timer(0)
-        print("here")
-        self.tim0.init(period=200, mode=Timer.PERIODIC, callback=self.touchpads_maigame)
-        print("here2")
-        time.sleep(2)
-        print("here3")
-#        self.animation()
+        self.tim0.init(period=self.period_length, mode=Timer.PERIODIC, callback=self.touchpads_maigame)
+        self.animation()
+        self.tim0.deinit()
+        
         
     def on_press(self, pin):
         pass
